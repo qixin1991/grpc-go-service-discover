@@ -7,9 +7,9 @@ import (
 
 	"strconv"
 
-	pb "grpc-client/rpc"
+	pb "grpc-lb-client/rpc"
 
-	grpclb "grpc-client/etcdv3"
+	grpclb "grpc-lb-client/etcdv3"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
