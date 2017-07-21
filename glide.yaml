@@ -1,0 +1,12 @@
+package: grpc-client
+import:
+- package: github.com/coreos/etcd
+  version: ~3.2.2
+  subpackages:
+  - mvcc/mvccpb
+  - etcdserver/api/v3rpc/rpctypes
+  - clientv3
+- package: google.golang.org/grpc
+  version: ~1.4.2
+  subpackages:
+  - naming
