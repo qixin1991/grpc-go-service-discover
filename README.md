@@ -1,3 +1,12 @@
+# grpc-go-service-discover
+
+gRPC golang service discover sdk.
+
+# Usage Example
+
+_client.go_
+
+```golang
 package main
 
 import (
@@ -7,9 +16,9 @@ import (
 
 	"strconv"
 
-	pb "grpc-lb-client/rpc"
+	"github.com/qixin1991/grpc-go-service-discover/rpc"
 
-	grpclb "grpc-lb-client/etcdv3"
+	"github.com/qixin1991/grpc-go-service-discover/sdk"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
@@ -22,7 +31,7 @@ var (
 
 func main() {
 	flag.Parse()
-	r := grpclb.NewResolver(*serv)
+	r := sdk.NewResolver(*serv)
 	b := grpc.RoundRobin(r)
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
@@ -33,12 +42,12 @@ func main() {
 
 	ticker := time.NewTicker(1 * time.Second)
 	for t := range ticker.C {
-		client := pb.NewGreeterClient(conn)
-		resp, err := client.SayHello(context.Background(), &pb.HelloRequest{Name: "world " + strconv.Itoa(t.Second())})
+		client := rpc.NewGreeterClient(conn)
+		resp, err := client.SayHello(context.Background(), &rpc.HelloRequest{Name: "world " + strconv.Itoa(t.Second())})
 		if err == nil {
 			fmt.Printf("%v: Reply is %s\n", t, resp.Message)
 		}
-		resp2, err2 := client.SayHelloAgain(context.Background(), &pb.HelloRequest{Name: "world " + strconv.Itoa(t.Second())})
+		resp2, err2 := client.SayHelloAgain(context.Background(), &rpc.HelloRequest{Name: "world " + strconv.Itoa(t.Second())})
 		if err2 == nil {
 			fmt.Printf("%v: Reply Again is %s\n", t, resp2.Message)
 		} else {
@@ -46,3 +55,15 @@ func main() {
 		}
 	}
 }
+
+```
+
+Issue the following command
+
+```shell
+go run client.go --reg [etcd3_cluser_string]
+```
+
+> NOTE: Start your server instance before running the client.
+>
+> For grpc service registry, see https://github.com/qixin1991/grpc-go-register.git
