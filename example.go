@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"grpc-go-service-discover/sdk"
 	"time"
+
+	"github.com/qixin1991/grpc-go-service-discover/sdk"
 
 	"strconv"
 
-	"grpc-go-service-discover/rpc"
+	"github.com/qixin1991/grpc-go-service-discover/rpc"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
