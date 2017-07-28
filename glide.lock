@@ -1,5 +1,5 @@
-hash: 7ee693009c36357e97534f580913e6f7a2aa20878debb5b41e2ef8b176dd2cee
-updated: 2017-07-28T10:14:33.38052778+08:00
+hash: d48a8b1d2711b1b90a64d7ad50ecf3044e23480cf9344c6bf2a6512fcc1acb4e
+updated: 2017-07-28T10:31:22.747475923+08:00
 imports:
 - name: github.com/coreos/etcd
   version: c31bec0f29facff13f7c3e3d948e55dd6689ed42
@@ -15,7 +15,7 @@ imports:
   - proto
   - ptypes/any
 - name: github.com/qixin1991/grpc-go-service-discover
-  version: 654f088318e7843e86b7ed842012f281a604d399
+  version: 8de844585c18dd5b7b56f3201091c7f8c11cc5fa
   subpackages:
   - rpc
   - sdk

@@ -1,13 +1,21 @@
-package: grpc-client
+package: grpc-go-service-discover
 import:
 - package: github.com/coreos/etcd
-  version: ~3.2.2
+  version: ~3.2.4
   subpackages:
-  - mvcc/mvccpb
-  - etcdserver/api/v3rpc/rpctypes
   - clientv3
+  - mvcc/mvccpb
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: github.com/qixin1991/grpc-go-service-discover
+  subpackages:
+  - rpc
+  - sdk
+- package: golang.org/x/net
+  subpackages:
+  - context
 - package: google.golang.org/grpc
   version: ~1.4.2
   subpackages:
   - naming
-- package: github.com/qixin1991/grpc-go-service-discover
