@@ -1,5 +1,5 @@
 hash: d48a8b1d2711b1b90a64d7ad50ecf3044e23480cf9344c6bf2a6512fcc1acb4e
-updated: 2017-07-28T10:31:22.747475923+08:00
+updated: 2017-07-28T10:41:18.166805901+08:00
 imports:
 - name: github.com/coreos/etcd
   version: c31bec0f29facff13f7c3e3d948e55dd6689ed42
@@ -15,7 +15,7 @@ imports:
   - proto
   - ptypes/any
 - name: github.com/qixin1991/grpc-go-service-discover
-  version: 8de844585c18dd5b7b56f3201091c7f8c11cc5fa
+  version: 1083440a01c90351142649529cd7d7a86c55f2bb
   subpackages:
   - rpc
   - sdk
@@ -30,14 +30,14 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/text
-  version: cfdf022e86b4ecfb646e1efbd7db175dd623a8fa
+  version: 836efe42bb4aa16aaa17b9c155d8813d336ed720
   subpackages:
   - secure/bidirule
   - transform
   - unicode/bidi
   - unicode/norm
 - name: google.golang.org/genproto
-  version: aa2eb687b4d3e17154372564ad8d6bf11c3cf21f
+  version: b0a3dcfcd1a9bd48e63634bd8802960804cf8315
   subpackages:
   - googleapis/rpc/status
 - name: google.golang.org/grpc
