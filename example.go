@@ -3,13 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"grpc-go-service-discover/sdk"
 	"time"
 
 	"strconv"
 
-	"github.com/qixin1991/grpc-go-service-discover/rpc"
-
-	"github.com/qixin1991/grpc-go-service-discover/sdk"
+	"grpc-go-service-discover/rpc"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
@@ -19,10 +18,11 @@ var (
 	serv = flag.String("service", "hello_service", "service name")
 	reg  = flag.String("reg", "http://172.20.9.101:2379,http://172.20.9.103:2379,http://172.20.9.105:2379", "register etcd address")
 )
+var prefix = "etcd3_naming"
 
 func main() {
 	flag.Parse()
-	r := sdk.NewResolver(*serv)
+	r := sdk.NewResolver(prefix, *serv)
 	b := grpc.RoundRobin(r)
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)

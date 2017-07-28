@@ -29,9 +29,11 @@ var (
 	reg  = flag.String("reg", "http://172.20.9.101:2379,http://172.20.9.103:2379,http://172.20.9.105:2379", "register etcd address")
 )
 
+var prefix = "etcd3_naming"
+
 func main() {
 	flag.Parse()
-	r := sdk.NewResolver(*serv)
+	r := sdk.NewResolver(prefix,*serv)
 	b := grpc.RoundRobin(r)
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)

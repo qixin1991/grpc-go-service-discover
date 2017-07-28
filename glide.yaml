@@ -10,3 +10,4 @@ import:
   version: ~1.4.2
   subpackages:
   - naming
+- package: github.com/qixin1991/grpc-go-service-discover

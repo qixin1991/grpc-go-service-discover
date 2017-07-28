@@ -1,4 +1,4 @@
-package etcdv3
+package sdk
 
 import (
 	"errors"
@@ -11,16 +11,15 @@ import (
 
 // resolver is the implementaion of grpc.naming.Resolver
 type resolver struct {
+	prefix      string
 	serviceName string // service name to resolve
 }
 
-// NewResolver return resolver with service name
-func NewResolver(serviceName string) *resolver {
-	return &resolver{serviceName: serviceName}
+// NewResolver return resolver with prefix&service name
+func NewResolver(prefix string, serviceName string) *resolver {
+	return &resolver{prefix: prefix, serviceName: serviceName}
 }
 
-// Prefix should start and end with no slash
-var Prefix = "etcd3_naming"
 var client etcd3.Client
 
 // var serviceKey string
